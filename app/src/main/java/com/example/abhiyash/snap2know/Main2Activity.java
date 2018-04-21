@@ -43,7 +43,8 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
     EditText e;
     Button b1,b2,b3,b4,b5;
     Spinner langsp;
-    String language,lang,text,translatedtext,s;
+    String language,lang,text,translatedtext,s,query;
+    String result="";
     File f;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,7 +156,63 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                     } else {
                         Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
                         //String term = editTextInput.getText().toString();
-                        intent.putExtra(SearchManager.QUERY, e.getText().toString());
+                        String o="";
+                        String sentence = e.getText().toString();
+                        sentence = sentence.replaceAll("[^a-zA-Z0-9 ]", "");
+                        String[] words = sentence.split(" ");
+                        int len;
+                        len = words.length;
+                        System.out.println(len);
+                        String[] candidatewords = new String[len];
+                        String[] stopwords={"a","about","above","after","again","against","all","am","an","and","any","are","aren't","as","at","be",
+                                "because","been","before","being","below","between","both","but","by","can't","cannot","could","coudn't","did","didn't",
+                                "do","does","doesn't","doing","don't","down","during","each","few","from","further","had","hadn't","has","hasn't","have",
+                                "haven't","having","he","he'd","he'll","her","here","here's","hers","herself","him","himself","his","how","how's","i","i'd",
+                                "i'll","i'm","if","in","into","is","isn't","it","it's","its","itself","let's","me","more","most","mustn't","my","myself",
+                                "no","nor","not","off","of","once","only","or","other","ought","our","ourselves","out","over","own","same","shan't","she",
+                                "she'd","she'll","she's","should","shouldn't","so","some","such","than","that","that's","the","their","theirs","them",
+                                "themselves","then","there","there's","these","they","they'd","they'll","they're","they've","this","those","through",
+                                "to","too","under","until","up","very","was","wasn't", "we","we'd","we'll","we're","we've","were","weren't","what",
+                                "what's","when","when's","where","where's","which","while","who","who's","whom","why","why's","with","won't",
+                                "would","wouldn't","you","you'd","you'll","you're","you've","your","yours","yourself","yourselves"};
+                        int ch, flag = 0, count = 0;
+
+                        try {
+                            for (String w : words)
+                            {
+                                flag = 0;
+                                for(String a:stopwords)
+                                {
+                                    if(a.equalsIgnoreCase(w))
+                                    {
+                                        flag++;
+                                    }
+                                }
+                                System.out.println(4);
+                                if (flag == 0)
+                                {
+                                    candidatewords[count] = w;
+                                    count++;
+                                    o += w.toString();
+                                }
+                            }
+
+                            System.out.println(o);
+                            for(String a:candidatewords)
+                            {
+                                KeyWordExtract kw = new KeyWordExtract();
+                                String ss = kw.ext(a);
+                                if (ss.equals("null")) {
+
+                                } else {
+                                    result+=" "+ss;
+                                }
+                            }
+                        }catch(Exception e){
+                            System.out.println(e);
+                        }
+
+                        intent.putExtra(SearchManager.QUERY, result);
                         startActivity(intent);
                     }
                 }
