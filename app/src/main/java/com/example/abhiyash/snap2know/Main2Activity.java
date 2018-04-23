@@ -127,28 +127,28 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                     lang="de";
                     translatedtext=lt.translateTo(v,lang);
                     Toast.makeText(this, ""+translatedtext, Toast.LENGTH_SHORT).show();
-                    tv.setText(translatedtext);
+                    tv2.setText(translatedtext);
                 }
                 else if(language.equals("French"))
                 {
                     lang="fr";
                     translatedtext=lt.translateTo(v,lang);
                     Toast.makeText(this, ""+translatedtext, Toast.LENGTH_SHORT).show();
-                    tv.setText(translatedtext);
+                    tv2.setText(translatedtext);
                 }
                 else if(language.equals("Hindi"))
                 {
                     lang="hi";
                     translatedtext=lt.translateTo(v,lang);
                     Toast.makeText(this, ""+translatedtext, Toast.LENGTH_SHORT).show();
-                    tv.setText(translatedtext);
+                    tv2.setText(translatedtext);
                 }
                 else if(language.equals("Russian"))
                 {
                     lang="ru";
                     translatedtext=lt.translateTo(v,lang);
                     Toast.makeText(this, ""+translatedtext, Toast.LENGTH_SHORT).show();
-                    tv.setText(translatedtext);
+                    tv2.setText(translatedtext);
                 }
                 else if(language.equals("Google")) {
                     if (e.getText().toString().equals(null)) {
@@ -221,7 +221,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                     lang="es";
                     translatedtext=lt.translateTo(v,lang);
                     Toast.makeText(this, ""+translatedtext, Toast.LENGTH_SHORT).show();
-                    tv.setText(translatedtext);
+                    tv2.setText(translatedtext);
                 }
                 break;
             case R.id.button8:
