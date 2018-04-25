@@ -10,7 +10,7 @@ public class KeyWordExtract {
         int l=q.length();
         if(q.length()<4|| !q.endsWith("s"))
         {
-            //System.out.println("Not Plural");
+            //return q;
         }
         else if(q.endsWith("es"))
         {
@@ -81,7 +81,7 @@ public class KeyWordExtract {
         }
         if(q.length()<5 || !q.endsWith("ed"))
         {
-            // System.out.println("Do nothing");
+            //return q;
         }
         else
         if(q.length()>=5 && (q.charAt(l-4)=='a'||q.charAt(l-4)=='e'||q.charAt(l-4)=='i'||q.charAt(l-4)=='o'||q.charAt(l-4)=='u'))
@@ -129,7 +129,7 @@ public class KeyWordExtract {
 
         if(q.length()<6 || !q.endsWith("ing"))
         {
-            // System.out.println("Do nothing");
+            //return q;
         }
         else
         {
@@ -155,6 +155,6 @@ public class KeyWordExtract {
                 }
             }
         }
-        return "null";
+        return q;
     }
 }

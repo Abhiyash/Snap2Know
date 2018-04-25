@@ -211,7 +211,7 @@ public class Main2Activity extends AppCompatActivity implements View.OnClickList
                         }catch(Exception e){
                             System.out.println(e);
                         }
-
+                        //Toast.makeText(this, ""+result, Toast.LENGTH_SHORT).show();
                         intent.putExtra(SearchManager.QUERY, result);
                         startActivity(intent);
                     }

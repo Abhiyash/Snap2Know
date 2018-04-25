@@ -62,7 +62,7 @@ public class LanguageTranslation {
                                 .getString("translatedText") + "\n";
                             //Toast.makeText(ob, ""+result, Toast.LENGTH_SHORT).show();
                         }
-                  //  Toast.makeText(ob, ""+result, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ob, ""+result, Toast.LENGTH_SHORT).show();
                 }
                 catch (Exception e)
                 {
